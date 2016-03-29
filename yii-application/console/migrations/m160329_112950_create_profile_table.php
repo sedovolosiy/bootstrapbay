@@ -6,9 +6,18 @@ class m160329_112950_create_profile_table extends Migration
 {
     public function up()
     {
+        $tableOptions = null;
+        if ($this->db->driverName === 'mysql') {
+            // http://stackoverflow.com/questions/766809/whats-the-difference-between-utf8-general-ci-and-utf8-unicode-ci
+            $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+        }
+
         $this->createTable('{{%profile}}', [
-            'id' => $this->primaryKey()
-        ]);
+            'id' => $this->primaryKey(),
+            'user_id' => $this->integer(),
+            'title' => $this->string(),
+            'description' => $this->string(),
+        ], $tableOptions);
     }
 
     public function down()
