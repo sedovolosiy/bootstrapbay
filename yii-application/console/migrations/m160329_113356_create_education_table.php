@@ -15,9 +15,9 @@ class m160329_113356_create_education_table extends Migration
 
         $this->createTable('{{%education}}', [
             'id' => Schema::TYPE_PK,
-            'user_id' => Schema::TYPE_INTEGER.' NOT NULL',
-            'title' => Schema::TYPE_STRING.'(255) NOT NULL',
-            'date' => Schema::TYPE_DATE.' NOT NULL',
+            'user_id' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'title' => Schema::TYPE_STRING . '(255) NOT NULL',
+            'date' => Schema::TYPE_DATE . ' NOT NULL',
             'description' => Schema::TYPE_TEXT,
         ], $tableOptions);
     }

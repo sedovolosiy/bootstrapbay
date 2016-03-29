@@ -15,8 +15,9 @@ class m160329_113709_create_skills_table extends Migration
 
         $this->createTable('{{%skills}}', [
             'id' => Schema::TYPE_PK,
-            'user_id' => Schema::TYPE_INTEGER.' NOT NULL',
-            'title' => Schema::TYPE_STRING.'(255) NOT NULL',
+            'user_id' => Schema::TYPE_INTEGER . ' NOT NULL',
+            'title' => Schema::TYPE_STRING . '(255) NOT NULL',
+            'value' => Schema::TYPE_INTEGER . ' NOT NULL',
         ], $tableOptions);
     }
 
