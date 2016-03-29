@@ -14,7 +14,6 @@ class m160329_112950_create_profile_table extends Migration
 
         $this->createTable('{{%profile}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer(),
             'title' => $this->string(),
             'description' => $this->string(),
         ], $tableOptions);

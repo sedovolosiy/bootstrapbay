@@ -14,11 +14,11 @@ class m160329_113021_create_work_table extends Migration
 
         $this->createTable('{{%works}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
             'title' => $this->string(255)->notNull(),
             'short_description' => $this->string()->notNull(),
             'description' => $this->string()->notNull(),
-            'image' => $this->string(255)->notNull()
+            'image' => $this->string(255)->notNull(),
+            'url' => $this->string()->notNull(),
         ], $tableOptions);
     }
 

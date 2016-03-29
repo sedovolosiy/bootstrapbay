@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m160329_113325_create_resume_table extends Migration
+class m160329_113325_create_experience_table extends Migration
 {
     public function up()
     {
@@ -12,18 +12,17 @@ class m160329_113325_create_resume_table extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%resume}}', [
+        $this->createTable('{{%experience}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
             'title' => $this->string(255)->notNull(),
-            'short_description' => $this->string()->notNull(),
+            'date_from' => $this->date()->notNull(),
+            'date_to' => $this->date()->notNull(),
             'description' => $this->string()->notNull(),
-            'image' => $this->string(255)->notNull()
         ], $tableOptions);
     }
 
     public function down()
     {
-        $this->dropTable('{{%resume}}');
+        $this->dropTable('{{%experience}}');
     }
 }

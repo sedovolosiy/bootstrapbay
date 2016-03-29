@@ -15,7 +15,6 @@ class m160329_111803_create_personal_info_table extends Migration
 
         $this->createTable('{{%personal_info}}', [
             'id' => $this->primaryKey(),
-            'user_id' => Schema::TYPE_INTEGER . ' NOT NULL',
             'user_email' => Schema::TYPE_STRING . ' NOT NULL',
             'avatar' => Schema::TYPE_STRING . '(255) NOT NULL',
             'first_name' => Schema::TYPE_STRING . '(255) NOT NULL',
