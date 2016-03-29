@@ -6,13 +6,13 @@ class m160329_113021_create_work_table extends Migration
 {
     public function up()
     {
-        $this->createTable('work', [
+        $this->createTable('{{%works}}', [
             'id' => $this->primaryKey()
         ]);
     }
 
     public function down()
     {
-        $this->dropTable('work_table');
+        $this->dropTable('{{%works}}');
     }
 }
