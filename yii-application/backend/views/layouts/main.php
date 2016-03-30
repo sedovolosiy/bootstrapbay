@@ -20,6 +20,7 @@ AppAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <?php $this->head() ?>
 </head>
 <body>
@@ -28,31 +29,150 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Admin page',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+    $menuItems = [
 
+        [
+            'label' => 'Информация <i class="fa fa-book"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/personal-info/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'url' => ['/personal-info/create']
+                ],
+
+            ]
+        ],
+        [
+            'label' => 'Профиль <i class="fa fa-bars"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/profile/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить профиль',
+                    'url' => ['/profile/update']
+                ],
+
+            ]
+        ],
+        [
+            'label' => 'Мои работы <i class="fa fa-th"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/works/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'url' => ['/works/update']
+                ],
+
+            ]
+        ],
+        [
+            'label' => 'Опыт работы <i class="fa fa-th"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/experience/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'url' => ['/experience/update']
+                ],
+
+            ]
+        ],
+        [
+            'label' => 'Образование <i class="fa fa-th"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/education/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'url' => ['/education/update']
+                ],
+
+            ]
+        ],
+        [
+            'label' => 'Навыки <i class="fa fa-th"></i>',
+            'items' => [
+//                '<li class="dropdown-header">Расширения</li>',
+//                '<li class="divider"></li>',
+                [
+                    'label' => 'Перейти к просмотру',
+                    'url' => ['/skills/index']
+                ],
+                '<li class="divider"></li>',
+                [
+                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'url' => ['/skills/update']
+                ],
+
+            ]
+        ],
+
+    ];
+    if (Yii::$app->user->isGuest) {
+        $menuItems[] = ['label' => 'Login!', 'url' => ['/login']];
+    } else {
+        $menuItems[] = '<li>'
+            . Html::beginForm(['/logout'], 'post')
+            . Html::submitButton(
+                'Logout (' . Yii::$app->user->identity->username . ')',
+                ['class' => 'btn btn-link']
+            )
+            . Html::endForm()
+            . '</li>';
+    }
+    echo Nav::widget([
+        'items' => $menuItems,
+        'activateParents' => true,
+        'encodeLabels' => false,
+        'options' => [
+            'class' => 'navbar-nav navbar-right'
+        ]
+    ]);
     NavBar::end();
     ?>
 
     <div class="container">
-
+        <?= Breadcrumbs::widget([
+            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+        ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
 
-<!---->
-<!--<footer class="footer">-->
-<!--    <div class="container">-->
-<!--        <p class="pull-left">&copy; My Company --><?//= date('Y') ?><!--</p>-->
-<!---->
-<!--        <p class="pull-right">--><?//= Yii::powered() ?><!--</p>-->
-<!--    </div>-->
-<!--</footer>-->
 
 <?php $this->endBody() ?>
 </body>

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: zeol
+ * Date: 30.03.16
+ * Time: 11:07
+ */
 namespace backend\controllers;
 
 use Yii;
@@ -10,9 +16,9 @@ use yii\filters\VerbFilter;
 /**
  * Site controller
  */
-class SiteController extends Controller
+class LoginController extends Controller
 {
-    public $layout = 'main';
+    public $layout = 'login_tpl';
     /**
      * @inheritdoc
      */
