@@ -21,14 +21,17 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'tableOptions' => [
+            'class' => 'table table-striped table-hover'
+        ],
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            'id',
             'title',
             'date_from',
             'date_to',
-            'description',
+            'description:html',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
