@@ -67,7 +67,14 @@ class PersonalInfoController extends Controller
         $model = new PersonalInfo();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->image = UploadedFile::getInstance($model,'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs($path);
+                $model->attachImage($path);
+                unlink($path);
+            }
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,15 +93,13 @@ class PersonalInfoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if ($model->image) {
-
-                $path = Yii::getAlias('@webroot/upload/files/') . $model->image->baseName . '.' . $model->image->extension;
+            $model->image = UploadedFile::getInstance($model,'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
                 $model->image->saveAs($path);
-                $model->attachImage($path, true);
+                $model->attachImage($path);
+                unlink($path);
             }
-
             if ($model->del_img) {
                 $image = $model->getImage();
                 if ($image) {
@@ -108,7 +113,7 @@ class PersonalInfoController extends Controller
                 }
             }
 
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
