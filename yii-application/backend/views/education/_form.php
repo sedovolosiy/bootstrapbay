@@ -34,39 +34,42 @@ use kartik\date\DatePicker;
     <!---->
     <!--    --><? //= $form->field($model,'date_to')->widget(DatePicker::className(),['clientOptions' => ['defaultDate' => '2014-01-01']]) ?>
 
-    <?= $form->field($model, 'date_from')->widget(DateControl::classname(), [
-        'type' => DateControl::FORMAT_DATE,
-        'ajaxConversion' => true,
-        'options' => [
-            'pluginOptions' => [
-                'autoclose' => true
-            ]
-        ]
-    ]); ?>
-
-    <?= $form->field($model, 'date_to')->widget(DateControl::classname(), [
-        'type' => DateControl::FORMAT_DATE,
-        'ajaxConversion' => true,
-        'options' => [
-            'pluginOptions' => [
-                'autoclose' => true,
-
-            ]
-        ]
-    ]); ?>
-
-<!--    --><?//= $form->field($model, 'date_to')->widget(DatePicker::classname(), [
-//
-//        'options' => ['placeholder' => 'Select date_to'],
-//        'pluginOptions' => [
-//
-//            'format' => 'yyyy-mm-dd',
-//            'todayHighlight' => true,
-//            'autoclose' => true,
-//
+<!--    --><?//= $form->field($model, 'date_from')->widget(DateControl::classname(), [
+//        'type' => DateControl::FORMAT_DATE,
+//        'ajaxConversion' => true,
+//        'options' => [
+//            'pluginOptions' => [
+//                'autoclose' => true
+//            ]
 //        ]
-//
 //    ]); ?>
+<!---->
+<!--    --><?//= $form->field($model, 'date_to')->widget(DateControl::classname(), [
+//        'type' => DateControl::FORMAT_DATE,
+//        'displayFormat'=> 'dd MM yyyy',
+//        'ajaxConversion' => true,
+//        'options' => [
+//            'pluginOptions' => [
+//                'autoclose' => true,
+//
+//            ]
+//        ]
+//    ]); ?>
+
+    <? echo '<label class="control-label">Выберите период</label>';
+    echo DatePicker::widget([
+    'model' => $model,
+    'attribute' => 'date_from',
+    'attribute2' => 'date_to',
+    'options' => ['placeholder' => 'Start date'],
+    'options2' => ['placeholder' => 'End date'],
+    'type' => DatePicker::TYPE_RANGE,
+    'form' => $form,
+    'pluginOptions' => [
+    'format' => 'yyyy-mm-dd',
+    'autoclose' => true,
+    ]
+    ]);?>
 
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
         'editorOptions' => [
