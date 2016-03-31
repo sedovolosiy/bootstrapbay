@@ -21,7 +21,11 @@
         "iutbay/yii2-fontawesome": "*",
         "mihaildev/yii2-ckeditor": "*",
         "yiisoft/yii2-imagine": "^2.0",
-        "kartik-v/yii2-widget-datepicker": "@dev"
+        "kartik-v/yii2-widget-datepicker": "@dev",
+        "2amigos/yii2-date-picker-widget": "~1.0",
+        "kartik-v/yii2-field-range": "*",
+        "yiisoft/yii2-jui": "^2.0",
+        "kartik-v/yii2-datecontrol": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

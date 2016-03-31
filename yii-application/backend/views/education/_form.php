@@ -2,7 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
+use kartik\datecontrol\DateControl;
 use kartik\date\DatePicker;
+
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Education */
@@ -15,31 +18,68 @@ use kartik\date\DatePicker;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-<!--    --><?//= $form->field($model, 'date_from')->widget(DatePicker::className(), [])
-//        //'language' => 'ru',
-//        //'dateFormat' => 'yyyy-MM-dd',
-//     ?>
 
-<!--    --><?//= $form->field($model, 'date_to')->textInput()?><!-- ?>-->
+    <!--    --><? //= $form->field($model, 'date_from')->widget(DateRangePicker::className(), [
+    //        'attributeTo' => 'date_to',
+    //        'form' => $form, // best for correct client validation
+    //        'language' => 'ru',
+    //        'size' => 'lg',
+    //        'clientOptions' => [
+    //            'autoclose' => true,
+    //            'format' => 'yyyy-M-dd'
+    //        ]
+    //    ]);?>
+
+    <!--    --><? //= $form->field($model,'date_from')->widget(DatePicker::className(),['clientOptions' => ['defaultDate' => '2014-01-01']]) ?>
+    <!---->
+    <!--    --><? //= $form->field($model,'date_to')->widget(DatePicker::className(),['clientOptions' => ['defaultDate' => '2014-01-01']]) ?>
+
+    <?= $form->field($model, 'date_from')->widget(DateControl::classname(), [
+        'type' => DateControl::FORMAT_DATE,
+        'ajaxConversion' => true,
+        'options' => [
+            'pluginOptions' => [
+                'autoclose' => true
+            ]
+        ]
+    ]); ?>
+
+    <?= $form->field($model, 'date_to')->widget(DateControl::classname(), [
+        'type' => DateControl::FORMAT_DATE,
+        'ajaxConversion' => true,
+        'options' => [
+            'pluginOptions' => [
+                'autoclose' => true,
+
+            ]
+        ]
+    ]); ?>
+
+<!--    --><?//= $form->field($model, 'date_to')->widget(DatePicker::classname(), [
+//
+//        'options' => ['placeholder' => 'Select date_to'],
+//        'pluginOptions' => [
+//
+//            'format' => 'yyyy-mm-dd',
+//            'todayHighlight' => true,
+//            'autoclose' => true,
+//
+//        ]
+//
+//    ]); ?>
+
+    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+        'editorOptions' => [
+            'preset' => 'basic',
+            //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false,
+            //по умолчанию false
+        ],
+    ]); ?>
+
     <div class="form-group">
-    <?php echo '<label class="control-label">Valid Dates</label>';
-                echo DatePicker::widget([
-                'name' => 'date_from',
-                'value' => '01-Feb-1996',
-                'type' => DatePicker::TYPE_RANGE,
-                'name2' => 'date_to',
-                'value2' => '27-Feb-1996',
-                'pluginOptions' => [
-                'autoclose'=>true,
-                'format' => 'dd-M-yyyy'
-                ]
-    ]);?>
-        </div>
-
-    <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
-
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update',
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

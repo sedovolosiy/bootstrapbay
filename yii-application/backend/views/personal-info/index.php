@@ -35,7 +35,10 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'phone',
             // 'website',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'header'=>'Действия',
+                'headerOptions' => ['width' => '80'],
+                'template' => '{view} {update} {delete}{link}',],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

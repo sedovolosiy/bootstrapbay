@@ -61,17 +61,17 @@ class PersonalInfo extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_email' => 'User Email',
+            'user_email' => 'Email',
             'image' => 'Главное фото',
             'del_gallery' =>'Удалить все фото',
             'del_img' =>'Удалить главное фото',
-            'first_name' => 'First Name',
-            'last_name' => 'Last Name',
-            'position' => 'Position',
-            'date_of_birth' => 'Date Of Birth',
-            'address' => 'Address',
-            'phone' => 'Phone',
-            'website' => 'Website',
+            'first_name' => 'Фамилия',
+            'last_name' => 'Имя',
+            'position' => 'Должность',
+            'date_of_birth' => 'Дата рождения',
+            'address' => 'Адресс',
+            'phone' => 'Телефон',
+            'website' => 'Сайт',
         ];
     }
 }

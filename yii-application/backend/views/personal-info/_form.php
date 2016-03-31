@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use mihaildev\ckeditor\CKEditor;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PersonalInfo */
@@ -65,7 +66,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date_of_birth')->textInput() ?>
 
-    <?= $form->field($model, 'address')->textInput(['maxlength' => true]) ?>
+    <?=  $form->field($model, 'address')->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'basic', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ],
+    ]);?>
+
 
     <?= $form->field($model, 'phone')->textInput(['maxlength' => true]) ?>
 
