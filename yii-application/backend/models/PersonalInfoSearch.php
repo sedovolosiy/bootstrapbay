@@ -13,6 +13,7 @@ use common\models\PersonalInfo;
 class PersonalInfoSearch extends PersonalInfo
 {
     public $del_img;
+    public $del_gallery;
 
     public function behaviors()
     {
@@ -30,7 +31,7 @@ class PersonalInfoSearch extends PersonalInfo
         return [
             [['id'], 'integer'],
             [['user_email', 'image', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'], 'safe'],
-            [['del_img'], 'boolean'],
+            [['del_img', 'del_gallery'], 'boolean'],
         ];
     }
 

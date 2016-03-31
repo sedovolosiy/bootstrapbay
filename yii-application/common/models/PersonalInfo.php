@@ -21,6 +21,7 @@ use Yii;
 class PersonalInfo extends \yii\db\ActiveRecord
 {
     public $del_img;
+    public $del_gallery;
 
     public function behaviors()
     {
@@ -48,7 +49,7 @@ class PersonalInfo extends \yii\db\ActiveRecord
             [['date_of_birth'], 'safe'],
             [['user_email', 'image', 'first_name', 'last_name', 'position', 'address', 'phone'], 'string', 'max' => 255],
             [['website'], 'string', 'max' => 150],
-            [['del_img'], 'boolean'],
+            [['del_img', 'del_gallery'], 'boolean'],
         ];
     }
 
@@ -60,7 +61,9 @@ class PersonalInfo extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_email' => 'User Email',
-            'image' => 'Image',
+            'image' => 'Главное фото',
+            'del_gallery' =>'Удалить все фото',
+            'del_img' =>'Удалить главное фото',
             'first_name' => 'First Name',
             'last_name' => 'Last Name',
             'position' => 'Position',

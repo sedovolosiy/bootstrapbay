@@ -87,18 +87,24 @@ class PersonalInfoController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            $model->image = UploadedFile::getInstance($model,'image');
-            if($model->image){
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if ($model->image) {
 
-                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+                $path = Yii::getAlias('@webroot/upload/files/') . $model->image->baseName . '.' . $model->image->extension;
                 $model->image->saveAs($path);
                 $model->attachImage($path, true);
             }
-            if($model->del_img){
+
+            if ($model->del_img) {
                 $image = $model->getImage();
-                if($image)
-                {
+                if ($image) {
                     $model->removeImage($image);
+                }
+            }
+            if ($model->del_gallery) {
+                $images = $model->getImages();
+                if ($images) {
+                    $model->removeImages();
                 }
             }
 

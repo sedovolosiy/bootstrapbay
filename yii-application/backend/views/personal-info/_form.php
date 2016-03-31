@@ -14,17 +14,19 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-md-10">
-<!--        --><?php
-//                $images = $model->getImages();
-////      ?>
+<?php
+                $images = $model->getImages();
+
+ ?>
             <div class="row">
-<!---->
-<!--            --><?php //foreach ($images as $image): ?>
-<!--                <div class="col-md-3">-->
-<!--                    <img src="--><?//=$image->getUrl('x300')?><!--" alt="">-->
-<!--                </div>-->
-<!---->
-<!--            --><?php //endforeach ?>
+
+            <?php foreach ($images as $image): ?>
+                <div class="col-md-3">
+                    <img src="<?=$image->getUrl('x100')?>" alt="">
+
+                </div>
+
+            <?php endforeach ?>
                 <?php
                 $image = $model->getImage();
 
@@ -32,19 +34,23 @@ use yii\widgets\ActiveForm;
                 <?php if($image){ ?>
                 <div class="col-md-3">
                     <img src="/<? echo $image->getPath('x300'); ?>"><alt=""></alt>
-                    <?= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
+<!--                    --><?//= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
                 </div>
                 <? }?>
             </div>
         </div>
     </div>
 
-<!--    <div class="form-group">-->
-<!--        --><?php //$image = $model->getImage(); ?>
-<!--        --><?php //if($image){ ?>
-<!--            --><?//= Html::submitButton('Удалить фото', $model->removeImage($image)) ?>
-<!--        --><?// }?>
-<!--    </div>-->
+    <div class="form-group">
+        <div class="row">
+            <div class="col-xs-6">
+                <?= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
+            </div>
+            <div class="col-xs-6">
+                <?= $form->field($model,'del_gallery')->checkBox(['class'=>'span-1']) ?>
+            </div>
+        </div>
+    </div>
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
