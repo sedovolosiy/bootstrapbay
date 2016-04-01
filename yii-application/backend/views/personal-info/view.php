@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model common\models\PersonalInfo */
 
 $this->title = $model->first_name.' '.$model->last_name;
-$this->params['breadcrumbs'][] = ['label' => 'Personal Infos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Информация', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="form-group">
@@ -23,11 +23,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="row">
                             <div class="col-md-12">
                                 <p>
-                                    <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-                                    <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+                                    <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+                                    <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
                                         'class' => 'btn btn-danger',
                                         'data' => [
-                                            'confirm' => 'Are you sure you want to delete this item?',
+                                            'confirm' => 'Точно удалить?',
                                             'method' => 'post',
                                         ],
                                     ]) ?>
@@ -48,7 +48,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             'last_name',
                             'position',
                             'date_of_birth',
-                            'address',
+                            'address:html',
                             'phone',
                             'website',
                         ],

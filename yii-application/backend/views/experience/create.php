@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Experience */
 
-$this->title = 'Create Experience';
-$this->params['breadcrumbs'][] = ['label' => 'Experiences', 'url' => ['index']];
+$this->title = 'Добавить опыт работы';
+$this->params['breadcrumbs'][] = ['label' => 'Опыт работы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="experience-create">

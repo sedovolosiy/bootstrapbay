@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Admin page',
+        'brandLabel' => 'Админка',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -48,7 +48,7 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить',
+                    'label' => '<i class="fa fa-plus"></i> Создать',
                     'url' => ['/personal-info/create']
                 ],
 
@@ -65,8 +65,8 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить профиль',
-                    'url' => ['/profile/update']
+                    'label' => '<i class="fa fa-plus"></i> Создать профиль',
+                    'url' => ['/profile/create']
                 ],
 
             ]
@@ -82,8 +82,8 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить',
-                    'url' => ['/works/update']
+                    'label' => '<i class="fa fa-plus"></i> Создать',
+                    'url' => ['/works/create']
                 ],
 
             ]
@@ -99,8 +99,8 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить',
-                    'url' => ['/experience/update']
+                    'label' => '<i class="fa fa-plus"></i> Создать',
+                    'url' => ['/experience/create']
                 ],
 
             ]
@@ -116,8 +116,8 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить',
-                    'url' => ['/education/update']
+                    'label' => '<i class="fa fa-plus"></i> Создать',
+                    'url' => ['/education/create']
                 ],
 
             ]
@@ -133,8 +133,8 @@ AppAsset::register($this);
                 ],
                 '<li class="divider"></li>',
                 [
-                    'label' => '<i class="fa fa-plus"></i> Изменить',
-                    'url' => ['/skills/update']
+                    'label' => '<i class="fa fa-plus"></i> Создать',
+                    'url' => ['/skills/create']
                 ],
 
             ]
@@ -147,7 +147,7 @@ AppAsset::register($this);
         $menuItems[] = '<li>'
             . Html::beginForm(['/logout'], 'post')
             . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
+                'Выход (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link']
             )
             . Html::endForm()

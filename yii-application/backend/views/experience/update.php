@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Experience */
 
-$this->title = 'Update Experience: ' . $model->title;
-$this->params['breadcrumbs'][] = ['label' => 'Experiences', 'url' => ['index']];
+$this->title = 'Обновить должность: ' . $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Опыт работы', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Обновить опыт';
 ?>
 <div class="experience-update">
 

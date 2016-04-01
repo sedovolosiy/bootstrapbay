@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\WorksSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Works';
+$this->title = 'Мои работы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="works-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Works', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'title',
             'short_description',
-            'description',
+            'description:html',
             'image',
             // 'url:url',
 

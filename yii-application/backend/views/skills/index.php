@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\SkillsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Skills';
+$this->title = 'Навыки';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="skills-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Skills', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить навыки', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,

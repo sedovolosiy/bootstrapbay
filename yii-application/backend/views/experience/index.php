@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ExperienceSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Experiences';
+$this->title = 'Опыт работы';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="experience-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Experience', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить опыт работы', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,

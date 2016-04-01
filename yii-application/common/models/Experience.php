@@ -42,10 +42,10 @@ class Experience extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'date_from' => 'Date From',
-            'date_to' => 'Date To',
-            'description' => 'Description',
+            'title' => 'Должность',
+            'date_from' => 'Дата начала',
+            'date_to' => 'Дата окончания',
+            'description' => 'Описание',
         ];
     }
 }
