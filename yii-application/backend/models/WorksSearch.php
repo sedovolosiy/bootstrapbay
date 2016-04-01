@@ -12,6 +12,17 @@ use common\models\Works;
  */
 class WorksSearch extends Works
 {
+    public $del_img;
+    public $del_gallery;
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -20,6 +31,7 @@ class WorksSearch extends Works
         return [
             [['id'], 'integer'],
             [['title', 'short_description', 'description', 'image', 'url'], 'safe'],
+            [['del_img', 'del_gallery'], 'boolean'],
         ];
     }
 

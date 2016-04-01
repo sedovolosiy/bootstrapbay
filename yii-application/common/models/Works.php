@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "works".
@@ -16,6 +17,17 @@ use Yii;
  */
 class Works extends \yii\db\ActiveRecord
 {
+    public $del_img;
+    public $del_gallery;
+
+    public function behaviors()
+    {
+        return [
+            'image' => [
+                'class' => 'rico\yii2images\behaviors\ImageBehave',
+            ]
+        ];
+    }
     /**
      * @inheritdoc
      */
@@ -30,8 +42,9 @@ class Works extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'short_description', 'description', 'image', 'url'], 'required'],
+            [['title', 'short_description', 'description', 'url'], 'required'],
             [['title', 'short_description', 'description', 'image', 'url'], 'string', 'max' => 255],
+            [['del_img', 'del_gallery'], 'boolean'],
         ];
     }
 
@@ -42,10 +55,10 @@ class Works extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'short_description' => 'Short Description',
-            'description' => 'Description',
-            'image' => 'Image',
+            'title' => 'Заголовок',
+            'short_description' => 'Короткое описание',
+            'description' => 'Описание',
+            'image' => 'Изображение',
             'url' => 'Url',
         ];
     }

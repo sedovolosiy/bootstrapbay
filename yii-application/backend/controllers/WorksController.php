@@ -8,6 +8,7 @@ use backend\models\WorksSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * WorksController implements the CRUD actions for Works model.
@@ -66,7 +67,14 @@ class WorksController extends Controller
         $model = new Works();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->image = UploadedFile::getInstance($model,'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs($path);
+                $model->attachImage($path);
+                unlink($path);
+            }
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -85,7 +93,27 @@ class WorksController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            $model->image = UploadedFile::getInstance($model,'image');
+            if($model->image){
+                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+                $model->image->saveAs($path);
+                $model->attachImage($path);
+                unlink($path);
+            }
+            if ($model->del_img) {
+                $image = $model->getImage();
+                if ($image) {
+                    $model->removeImage($image);
+                }
+            }
+            if ($model->del_gallery) {
+                $images = $model->getImages();
+                if ($images) {
+                    $model->removeImages();
+                }
+            }
+
+            return $this->redirect(['index', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,

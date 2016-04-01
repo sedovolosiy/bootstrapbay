@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\WorksSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -18,20 +19,35 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+    <div class="row">
+        <div class="col-md-12">
+        <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+//        'filterModel' => $searchModel,
+            'showHeader' => true,
+            'showFooter'=> false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+//            'id',
             'title',
-            'short_description',
+        [
+            'attribute' => 'short_description',
+            'format' =>  ['html'],
+            'options' => ['width' => '400']
+
+        ],
+//            'short_description:html',
             'description:html',
-            'image',
+//            'image',
             // 'url:url',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'header'=>'Действия',
+                'headerOptions' => ['width' => '80'],
+                'template' => '{view} {update} {delete}{link}',],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?>
+        </div>
+    </div>
