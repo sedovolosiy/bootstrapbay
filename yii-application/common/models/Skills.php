@@ -10,6 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $title
  * @property integer $value
+ * @property integer $status
  */
 class Skills extends \yii\db\ActiveRecord
 {
@@ -28,7 +29,7 @@ class Skills extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'value'], 'required'],
-            [['value'], 'integer'],
+            [['value', 'status'], 'integer'],
             [['title'], 'string', 'max' => 255],
         ];
     }
@@ -42,6 +43,13 @@ class Skills extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'value' => 'Value',
+            'status' => 'Status',
         ];
+    }
+
+    public function changeVisible($status)
+    {
+        $this->status = !$status;
+        $this->update();
     }
 }

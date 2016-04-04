@@ -7,6 +7,8 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\PersonalInfoSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $models backend\controllers\PersonalInfoController */
+
 
 $this->title = 'Информация';
 $this->params['breadcrumbs'][] = $this->title;
@@ -14,12 +16,27 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="personal-info-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
+<!--    --><?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<!---->
     <p>
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-<?php Pjax::begin(); ?>    <?= GridView::widget([
+
+
+    <div class="form-group">
+        <div class="row">
+            <?php foreach ($models as $model): ?>
+                <?php $image = $model->getImage();?>
+<!--                --><?php //foreach($image as $img): ?>
+                    <p><img src="<?=$image->getPath('x100')?>" alt=""></p>
+
+<!--                --><?php //endforeach?>
+
+            <?php endforeach?>
+        </div>
+    </div>
+<?php Pjax::begin(); ?>
+        <?= GridView::widget([
         'dataProvider' => $dataProvider,
 //        'filterModel' => $searchModel,
         'columns' => [
@@ -29,11 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_email:email',
             'first_name',
             'last_name',
+//
             // 'position',
-            // 'date_of_birth',
-            // 'address',
-            // 'phone',
-            // 'website',
+             'date_of_birth',
+//             'address',
+//             'phone',
+//             'website',
 
             ['class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия',
@@ -41,4 +59,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'template' => '{view} {update} {delete}{link}',],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?>
+
+</div>

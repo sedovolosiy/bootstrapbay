@@ -18,7 +18,7 @@ class SkillsSearch extends Skills
     public function rules()
     {
         return [
-            [['id', 'value'], 'integer'],
+            [['id', 'value', 'status'], 'integer'],
             [['title'], 'safe'],
         ];
     }
@@ -61,6 +61,7 @@ class SkillsSearch extends Skills
         $query->andFilterWhere([
             'id' => $this->id,
             'value' => $this->value,
+            'status' => $this->status,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title]);

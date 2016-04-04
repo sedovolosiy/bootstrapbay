@@ -48,9 +48,10 @@ class PersonalInfo extends \yii\db\ActiveRecord
         return [
             [['user_email', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'], 'required'],
             [['date_of_birth'], 'safe'],
-            [['user_email', 'image', 'first_name', 'last_name', 'position', 'address', 'phone'], 'string', 'max' => 255],
+            [['image', 'first_name', 'last_name', 'position', 'address', 'phone'], 'string', 'max' => 255],
             [['website'], 'string', 'max' => 150],
             [['del_img', 'del_gallery'], 'boolean'],
+            ['user_email', 'email'],
         ];
     }
 
@@ -65,13 +66,26 @@ class PersonalInfo extends \yii\db\ActiveRecord
             'image' => 'Главное фото',
             'del_gallery' =>'Удалить все фото',
             'del_img' =>'Удалить главное фото',
-            'first_name' => 'Фамилия',
-            'last_name' => 'Имя',
+            'first_name' => 'Имя',
+            'last_name' => 'Фамилия',
             'position' => 'Должность',
             'date_of_birth' => 'Дата рождения',
             'address' => 'Адресс',
             'phone' => 'Телефон',
             'website' => 'Сайт',
         ];
+    }
+
+    public function fields()
+    {
+        return ['id', 'user_email', 'username' => function ($model) {
+            return $model->first_name . ' ' . $model->last_name;
+        }
+
+        ];
+    }
+    public function extraFields()
+    {
+        return ['status'];
     }
 }

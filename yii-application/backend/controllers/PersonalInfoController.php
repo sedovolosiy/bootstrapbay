@@ -38,10 +38,14 @@ class PersonalInfoController extends Controller
     {
         $searchModel = new PersonalInfoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $models = PersonalInfo::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'models' => $models,
+
+
         ]);
     }
 

@@ -96,6 +96,12 @@ return [
             'showScriptName' => false,
             'enableStrictParsing'=>false,
             'rules' => [
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'rest',
+                    'except' => ['delete'],
+
+                ],
+
                 'login' => '/login/login',
                 'logout' => '/login/logout',
                 'info' => '/personal-info/index',
@@ -106,7 +112,11 @@ return [
                 'skills' => '/skills/index',
             ],
         ],
-
+//        'request' => [
+//            'parsers' => [
+//                'application/json' => 'yii\web\JsonParser',
+//            ]
+//        ]
     ],
     'params' => $params,
 ];

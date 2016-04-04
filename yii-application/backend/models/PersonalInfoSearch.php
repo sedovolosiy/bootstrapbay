@@ -30,7 +30,7 @@ class PersonalInfoSearch extends PersonalInfo
     {
         return [
             [['id'], 'integer'],
-            [['user_email', 'image', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'], 'safe'],
+            [['user_email', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'], 'safe'],
             [['del_img', 'del_gallery'], 'boolean'],
         ];
     }

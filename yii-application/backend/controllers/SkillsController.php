@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class SkillsController extends Controller
 {
+    public $modelClass = 'common/models/Skill';
+
     /**
      * @inheritdoc
      */
@@ -120,5 +122,12 @@ class SkillsController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionChangeVisible($id, $status)
+    {
+        /** @var  $model  Skills */
+        $model = Skills::find()->where(['id' => $id])->one();
+        $model->changeVisible($status);
     }
 }

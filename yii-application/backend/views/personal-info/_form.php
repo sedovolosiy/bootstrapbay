@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use mihaildev\ckeditor\CKEditor;
+use kartik\date\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\PersonalInfo */
@@ -55,7 +56,7 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
-    <?= $form->field($model, 'user_email')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'user_email')->input('email') ?>
 
 
     <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
@@ -64,7 +65,15 @@ use mihaildev\ckeditor\CKEditor;
 
     <?= $form->field($model, 'position')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'date_of_birth')->textInput() ?>
+<!--    --><?//= $form->field($model, 'date_of_birth')->textInput() ?>
+
+    <?echo $form->field($model, 'date_of_birth')->widget(DatePicker::classname(), [
+    'options' => ['placeholder' => 'Enter birth date ...'],
+    'pluginOptions' => [
+        'format' => 'yyyy-mm-dd',
+        'autoclose'=>true
+    ]
+    ]); ?>
 
     <?=  $form->field($model, 'address')->widget(CKEditor::className(),[
         'editorOptions' => [
