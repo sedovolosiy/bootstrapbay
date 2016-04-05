@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a302ec5dac0a93c72381759e9ea809db",
-    "content-hash": "fd71a996a8715b2599963d78cd39a382",
+    "hash": "2c0e3fa44ebdb6868e7f80ebb259a0b3",
+    "content-hash": "516f66311b1958d05e76c2f4701b33a9",
     "packages": [
         {
             "name": "2amigos/yii2-date-picker-widget",
@@ -67,6 +67,33 @@
                 "yii2"
             ],
             "time": "2015-04-02 11:48:05"
+        },
+        {
+            "name": "bower-asset/animate.css",
+            "version": "3.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daneden/animate.css.git",
+                "reference": "8f548f80a3986df93641762e4bc0be279cde3b19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/daneden/animate.css/zipball/8f548f80a3986df93641762e4bc0be279cde3b19",
+                "reference": "8f548f80a3986df93641762e4bc0be279cde3b19",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./animate.css",
+                "bower-asset-ignore": [
+                    ".*",
+                    "src",
+                    "*.yml",
+                    "Gemfile",
+                    "Gemfile.lock",
+                    "*.md"
+                ]
+            }
         },
         {
             "name": "bower-asset/bootstrap",
@@ -251,6 +278,26 @@
             ]
         },
         {
+            "name": "bower-asset/noty",
+            "version": "v2.3.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/needim/noty.git",
+                "reference": "d93ecb6ab4558431921cb8f55b12fbaa7bd77c55"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/needim/noty/zipball/d93ecb6ab4558431921cb8f55b12fbaa7bd77c55",
+                "reference": "d93ecb6ab4558431921cb8f55b12fbaa7bd77c55",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "js/noty/packaged/jquery.noty.packaged.js"
+            },
+            "description": "noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)"
+        },
+        {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
@@ -371,6 +418,55 @@
                 "markdown-extra"
             ],
             "time": "2015-03-06 05:28:07"
+        },
+        {
+            "name": "eleiva/yii2-noty",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eleiva/yii2-noty.git",
+                "reference": "3af35cda54fcfbc6f9c1c18522faad7de5ba2b05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eleiva/yii2-noty/zipball/3af35cda54fcfbc6f9c1c18522faad7de5ba2b05",
+                "reference": "3af35cda54fcfbc6f9c1c18522faad7de5ba2b05",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/animate.css": "3.2.3",
+                "bower-asset/noty": "2.3.4",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "eleiva\\noty\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Leiva",
+                    "email": "eleiva@gmail.com"
+                },
+                {
+                    "name": "Victor Demin",
+                    "email": "demin@trabeja.com"
+                }
+            ],
+            "description": "Wrapper of jquery plugin noty",
+            "keywords": [
+                " notify",
+                "extension",
+                "jquery",
+                "notification",
+                "yii2"
+            ],
+            "time": "2015-03-06 13:06:22"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1653,7 +1749,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
         "kartik-v/yii2-widget-datepicker": 20,
         "kartik-v/yii2-datecontrol": 20,

@@ -112,11 +112,16 @@ return [
                 'skills' => '/skills/index',
             ],
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'booleanFormat' => ['<span class="glyphicon glyphicon-remove"></span>', '<span class="glyphicon glyphicon-ok"></span>'],
+        ],
 //        'request' => [
 //            'parsers' => [
 //                'application/json' => 'yii\web\JsonParser',
 //            ]
 //        ]
     ],
+
     'params' => $params,
 ];

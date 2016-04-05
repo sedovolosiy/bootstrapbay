@@ -39,10 +39,12 @@ class SkillsController extends Controller
     {
         $searchModel = new SkillsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $model = new Skills();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'model' =>$model,
         ]);
     }
 
@@ -124,8 +126,10 @@ class SkillsController extends Controller
         }
     }
 
-    public function actionChangeVisible($id, $status)
+    public function actionChangeVisible()
     {
+        print_r($_POST);
+        exit;
         /** @var  $model  Skills */
         $model = Skills::find()->where(['id' => $id])->one();
         $model->changeVisible($status);

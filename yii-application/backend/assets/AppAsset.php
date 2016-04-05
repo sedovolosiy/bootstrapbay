@@ -17,11 +17,14 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
+    public $jsOptions = ['position' => \yii\web\View::POS_BEGIN];
     public $css = [
         'css/site.css',
         'css/login.css',
     ];
     public $js = [
+        'js/visible.js',
+//        'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

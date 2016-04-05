@@ -29,8 +29,9 @@ class Skills extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'value'], 'required'],
-            [['value', 'status'], 'integer'],
+            [['value', ], 'integer'],
             [['title'], 'string', 'max' => 255],
+            [['status'], 'boolean'],
         ];
     }
 
@@ -49,7 +50,8 @@ class Skills extends \yii\db\ActiveRecord
 
     public function changeVisible($status)
     {
-        $this->status = !$status;
+//        if($status ===1) !status
+        $this->status = ($status == 1) ? 0 : 1;
         $this->update();
     }
 }
