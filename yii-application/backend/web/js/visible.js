@@ -11,9 +11,10 @@ $(function () {
             var url = self.attr('data-href');
             var id  = self.attr('data-id');
             var status = self.attr('data-status');
+            var method = self.attr('data-method')
 
             $.ajax({
-                type: 'post',
+                type: method,
                 url: url,
                 data: {
                     id: id,
