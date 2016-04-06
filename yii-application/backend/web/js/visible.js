@@ -3,9 +3,9 @@
  */
 $(function () {
     var common = {
-        btn_edit_enabled: $('#status_change'),
+        btn_edit_enabled: $('.status-button'),
         editEnabled: function (element) {
-            debugger;
+            //debugger;
             var self = $(element);
 
             var url = self.attr('data-href');
@@ -52,4 +52,5 @@ $(function () {
     };
 
     common.initialize();
+
 });

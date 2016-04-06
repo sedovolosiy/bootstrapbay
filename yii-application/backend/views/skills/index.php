@@ -39,8 +39,8 @@ $this->registerJsFile('/js/visible.js');
                     return $model->status == 1 ? Html::button('<i class="fa fa-eye"></i> Active',
                     [
                         'title' => 'Status',
-                        'id'=> "status_change",
-                        'class' => 'btn btn-primary btn-xs btn-success',
+                        'id'=> "status_change".'_'.$model->id,
+                        'class' => 'status-button',
                         'data-href'=> '/skills/change-visible',
                         'data-status'=> $model->status,
                         'data-id' => $model->id,
@@ -51,8 +51,8 @@ $this->registerJsFile('/js/visible.js');
                         Html::button('<i class="fa fa-eye-slash"></i> Pass',
                             [
                                 'title' => 'Status',
-                                'id'=> "status_change",
-                                'class' => 'btn btn-primary btn-xs btn-warning',
+                                'id'=> "status_change".'_'.$model->id,
+                                'class' => 'status-button',
                                 'data-href'=> '/skills/change-visible',
                                 'data-status'=> $model->status,
                                 'data-id' => $model->id,
