@@ -14,7 +14,7 @@ $this->registerJsFile('/js/visible.js');
 ?>
 <div class="skills-index">
 
-    <h1 data-href="ddddd" data-status="1" data-id="2"><?= Html::encode($this->title) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -31,7 +31,7 @@ $this->registerJsFile('/js/visible.js');
             'value',
 //            'status:boolean',
             [
-                'attribute'=>'status',
+//                'attribute'=>'status',
                 'header'=>'Статус',
                 'contentOptions' =>['style'=>'display:block;'],
                 'headerOptions' => ['width' => '80'],
@@ -41,8 +41,11 @@ $this->registerJsFile('/js/visible.js');
                         'title' => 'Status',
                         'id'=> "status_change",
                         'class' => 'btn btn-primary btn-xs btn-success',
+                        'data-href'=> '/skills/change-visible',
+                        'data-status'=> $model->status,
+                        'data-id' => $model->id,
                         'data-method' => 'post',
-                        'data-pjax' => '0',
+
                     ])
                     :
                         Html::button('<i class="fa fa-eye-slash"></i> Pass',
@@ -50,8 +53,12 @@ $this->registerJsFile('/js/visible.js');
                                 'title' => 'Status',
                                 'id'=> "status_change",
                                 'class' => 'btn btn-primary btn-xs btn-warning',
+                                'data-href'=> '/skills/change-visible',
+                                'data-status'=> $model->status,
+                                'data-id' => $model->id,
                                 'data-method' => 'post',
-                                'data-pjax' => '0',
+
+
                             ]);
                 }
             ],

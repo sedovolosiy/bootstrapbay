@@ -5,7 +5,7 @@ $(function () {
     var common = {
         btn_edit_enabled: $('#status_change'),
         editEnabled: function (element) {
-            //debugger;
+            debugger;
             var self = $(element);
 
             var url = self.attr('data-href');
@@ -29,7 +29,7 @@ $(function () {
             });
         },
         showErrorMessage: function () {
-            //noty({
+            //console({
             //    text: "Error, please try again later",
             //    layout: "topCenter",
             //    type: "alert",

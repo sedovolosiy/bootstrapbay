@@ -128,8 +128,10 @@ class SkillsController extends Controller
 
     public function actionChangeVisible()
     {
-        print_r($_POST);
-        exit;
+        $status = Yii::$app->request->post('status');
+        $id = Yii::$app->request->post('id');
+//        print_r($_POST);
+//        exit;
         /** @var  $model  Skills */
         $model = Skills::find()->where(['id' => $id])->one();
         $model->changeVisible($status);

@@ -51,7 +51,8 @@ class Skills extends \yii\db\ActiveRecord
     public function changeVisible($status)
     {
 //        if($status ===1) !status
-        $this->status = ($status == 1) ? 0 : 1;
+//        $this->status = ($status == 1) ? 0 : 1;
+        $this->status = !$status;
         $this->update();
     }
 }
