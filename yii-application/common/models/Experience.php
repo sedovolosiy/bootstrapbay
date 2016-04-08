@@ -48,4 +48,20 @@ class Experience extends \yii\db\ActiveRecord
             'description' => 'Описание',
         ];
     }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'title',
+            'description',
+            'date_from',
+            'date_to',
+        ];
+    }
+
+    public function extraFields()
+    {
+        return ['status'];
+    }
 }

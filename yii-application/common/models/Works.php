@@ -62,4 +62,24 @@ class Works extends \yii\db\ActiveRecord
             'url' => 'Url',
         ];
     }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'title',
+            'short_description',
+            'description',
+            'image' => function ($model) {
+                return '/' . $model->getImage()->getPath('x100');
+            },
+            'url',
+
+        ];
+    }
+
+    public function extraFields()
+    {
+        return ['status'];
+    }
 }

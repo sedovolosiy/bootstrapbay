@@ -42,4 +42,18 @@ class Profile extends \yii\db\ActiveRecord
             'description' => 'Description',
         ];
     }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'title',
+            'description',
+        ];
+    }
+
+    public function extraFields()
+    {
+        return ['status'];
+    }
 }

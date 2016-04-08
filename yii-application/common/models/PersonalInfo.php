@@ -32,6 +32,7 @@ class PersonalInfo extends \yii\db\ActiveRecord
             ]
         ];
     }
+
     /**
      * @inheritdoc
      */
@@ -46,7 +47,10 @@ class PersonalInfo extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_email', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'], 'required'],
+            [
+                ['user_email', 'first_name', 'last_name', 'position', 'date_of_birth', 'address', 'phone', 'website'],
+                'required'
+            ],
             [['date_of_birth'], 'safe'],
             [['image', 'first_name', 'last_name', 'position', 'address', 'phone'], 'string', 'max' => 255],
             [['website'], 'string', 'max' => 150],
@@ -64,8 +68,8 @@ class PersonalInfo extends \yii\db\ActiveRecord
             'id' => 'ID',
             'user_email' => 'Email',
             'image' => 'Главное фото',
-            'del_gallery' =>'Удалить все фото',
-            'del_img' =>'Удалить главное фото',
+            'del_gallery' => 'Удалить все фото',
+            'del_img' => 'Удалить главное фото',
             'first_name' => 'Имя',
             'last_name' => 'Фамилия',
             'position' => 'Должность',
@@ -78,12 +82,23 @@ class PersonalInfo extends \yii\db\ActiveRecord
 
     public function fields()
     {
-        return ['id', 'user_email', 'username' => function ($model) {
-            return $model->first_name . ' ' . $model->last_name;
-        }
+        return [
+            'id',
+            'email' =>'user_email',
+            'first_name',
+            'last_name',
+            'position',
+            'date_of_birth',
+            'address',
+            'phone',
+            'website',
+            'image' => function ($model) {
+                return '/' . $model->getImage()->getPath('x100');
+            }
 
         ];
     }
+
     public function extraFields()
     {
         return ['status'];

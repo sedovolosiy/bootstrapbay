@@ -48,4 +48,14 @@ class Education extends \yii\db\ActiveRecord
             'description' => 'Описание',
         ];
     }
+
+    public function fields()
+    {
+        return ['id', 'title', 'date_from', 'date_to', 'description'];
+    }
+
+    public function extraFields()
+    {
+        return ['status'];
+    }
 }

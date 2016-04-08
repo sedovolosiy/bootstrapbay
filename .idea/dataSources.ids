@@ -74,6 +74,7 @@
       <column name="status" sqlType="SMALLINT" precision="5" scale="0" nullable="false" jdbcType="5" def="MTA="/>
       <column name="created_at" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="updated_at" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
       <index name="email" unique="true" columns="email"/>
       <index name="password_reset_token" unique="true" columns="password_reset_token"/>

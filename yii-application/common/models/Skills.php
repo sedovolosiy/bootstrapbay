@@ -42,9 +42,9 @@ class Skills extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'value' => 'Value',
-            'status' => 'Status',
+            'title' => 'Заголовок',
+            'value' => 'Значение',
+            'status' => 'Статус',
         ];
     }
 
@@ -54,5 +54,19 @@ class Skills extends \yii\db\ActiveRecord
 //        $this->status = ($status == 1) ? 0 : 1;
         $this->status = !$status;
         $this->update();
+    }
+
+    public function fields()
+    {
+        return [
+            'id',
+            'title',
+            'value',
+        ];
+    }
+
+    public function extraFields()
+    {
+        return ['status'];
     }
 }

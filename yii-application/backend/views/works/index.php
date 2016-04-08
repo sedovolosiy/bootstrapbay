@@ -26,25 +26,54 @@ $this->params['breadcrumbs'][] = $this->title;
 //        'filterModel' => $searchModel,
             'showHeader' => true,
             'showFooter'=> false,
+            'tableOptions' => [
+                'class' => 'table table-striped table-bordered;',
+            ],
+
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            'title',
+            [
+//                'attribute'=>'title',
+                'header'=>'Заголовок',
+//                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
+                'content' => function ($model) {
+                    return $model->title;
+                }
+            ],
         [
+            'header'=>'Краткое описание',
             'attribute' => 'short_description',
             'format' =>  ['html'],
-            'options' => ['width' => '400']
 
         ],
 //            'short_description:html',
-            'description:html',
-//            'image',
-            // 'url:url',
+//            'description:html',
+//            [
+////                'attribute'=>'description',
+//                'header'=>'Описание',
+////                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
+//                'content' => function ($model) {
+//                    return $model->description;
+//                }
+//            ],
+            [
+//                'attribute'=>'title',
+                'header'=>'Картинка',
+                'format' =>  'raw',
+//                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
+                'content' => function ($model) {
+                    return Html::img(Url::toRoute('/' . $model->getImage()->getPath('x100')),[
+                        'alt'=>'yii2 - картинка в gridview',
+//                        'style' => 'width:100px;'
+                    ]);
+                },
+            ],
 
             ['class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия',
-                'headerOptions' => ['width' => '80'],
+                'headerOptions' => ['width' => '80px'],
                 'template' => '{view} {update} {delete}{link}',],
         ],
     ]); ?>

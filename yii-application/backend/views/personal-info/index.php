@@ -23,18 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
 
 
-    <div class="form-group">
-        <div class="row">
-            <?php foreach ($models as $model): ?>
-                <?php $image = $model->getImage();?>
-<!--                --><?php //foreach($image as $img): ?>
-                    <p><img src="<?=$image->getPath('x100')?>" alt=""></p>
-
-<!--                --><?php //endforeach?>
-
-            <?php endforeach?>
-        </div>
-    </div>
 <?php Pjax::begin(); ?>
         <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -46,7 +34,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'user_email:email',
             'first_name',
             'last_name',
-//
+            [
+//                'attribute'=>'title',
+                'header'=>'Картинка',
+                'format' =>  'raw',
+//                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
+                'content' => function ($model) {
+                    return Html::img(Url::toRoute('/' . $model->getImage()->getPath('x100')),[
+                        'alt'=>'yii2 - картинка в gridview',
+//                        'style' => 'width:100px;'
+                    ]);
+                },
+            ],
+
             // 'position',
              'date_of_birth',
 //             'address',

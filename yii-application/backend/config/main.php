@@ -15,6 +15,11 @@ return [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'modules' => [
+
+        'api_v1' => [
+            'class' => 'backend\modules\api_v1\Module',
+        ],
+
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok
@@ -97,7 +102,32 @@ return [
             'enableStrictParsing'=>false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule',
-                    'controller' => 'rest',
+                    'controller' => 'works',
+                    'except' => ['delete'],
+
+                ],
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'skills',
+                    'except' => ['delete'],
+
+                ],
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'profile',
+                    'except' => ['delete'],
+
+                ],
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'personal-info',
+                    'except' => ['delete'],
+
+                ],
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'experience',
+                    'except' => ['delete'],
+
+                ],
+                ['class' => 'yii\rest\UrlRule',
+                    'controller' => 'education',
                     'except' => ['delete'],
 
                 ],
@@ -110,6 +140,8 @@ return [
                 'experience' => '/experience/index',
                 'education' => '/education/index',
                 'skills' => '/skills/index',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
         ],
         'formatter' => [

@@ -38,10 +38,12 @@ class WorksController extends Controller
     {
         $searchModel = new WorksSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $models = Works::find()->all();
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'models' =>$models,
         ]);
     }
 
