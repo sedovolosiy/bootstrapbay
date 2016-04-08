@@ -59,7 +59,9 @@ class Works extends \yii\db\ActiveRecord
             'short_description' => 'Короткое описание',
             'description' => 'Описание',
             'image' => 'Изображение',
-            'url' => 'Url',
+            'del_gallery' => 'Удалить все фото',
+            'del_img' => 'Удалить главное фото',
+            'url' => 'Сайт',
         ];
     }
 
