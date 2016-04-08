@@ -16,40 +16,46 @@ use kartik\date\DatePicker;
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-md-10">
-<?php
-                $images = $model->getImages();
 
- ?>
+
             <div class="row">
 
-            <?php foreach ($images as $image): ?>
-                <div class="col-md-3">
-                    <img src="<?=$image->getUrl('x100')?>" alt="">
-
-                </div>
-
-            <?php endforeach ?>
                 <?php
                 $image = $model->getImage();
 
                 ?>
                 <?php if($image){ ?>
-                <div class="col-md-3">
-                    <img src="/<? echo $image->getPath('x300'); ?>"><alt=""></alt>
+                <div class="col-md-9">
+                    <img src="/<? echo $image->getPath('x300'); ?>" alt="<?= $model->first_name . ' '. $model->last_name ?>">
 <!--                    --><?//= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
                 </div>
                 <? }?>
+                <?php
+                $images = $model->getImages();
+
+                ?>
+                <?php foreach ($images as $image): ?>
+
+                    <div class="col-md-3">
+                        <?php if($image){ ?>
+                            <img src="<?=$image->getUrl('x100')?>" alt="<?= $model->first_name . ' '. $model->last_name ?>">
+                        <? }?>
+                    </div>
+
+                <?php endforeach ?>
             </div>
         </div>
     </div>
-
     <div class="form-group">
         <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-4">
                 <?= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-4">
                 <?= $form->field($model,'del_gallery')->checkBox(['class'=>'span-1']) ?>
+            </div>
+            <div class="col-xs-4">
+                <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
             </div>
         </div>
     </div>

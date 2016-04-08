@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php if($image){ ?>
                     <div class="col-md-3">
-                        <img src="/<? echo $image->getPath('x300'); ?>"><alt=""></alt>
+                        <img src="/<? echo $image->getPath('250x'); ?>"><alt=""></alt>
                         <div class="row">
                             <div class="col-md-12">
                                 <p>
