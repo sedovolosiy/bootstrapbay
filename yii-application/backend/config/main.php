@@ -1,5 +1,6 @@
 <?php
 use \kartik\datecontrol\Module;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -15,6 +16,12 @@ return [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'modules' => [
+        'permit' => [
+            'class' => 'developeruz\db_rbac\Yii2DbRbac',
+            'params' => [
+            'userClass' => 'common\models\User'
+                ]
+        ],
 
         'api_v1' => [
             'class' => 'backend\modules\api_v1\Module',
@@ -78,6 +85,20 @@ return [
 
     ],
     'components' => [
+        'as AccessBehavior' => [
+            'class' => AccessBehavior::className(),
+            'rules' =>
+                ['site' =>
+                    [
+                        [
+                            'actions' => ['access', 'user'],
+                            'allow' => true,
+                            'roles' => ['admin'],
+                        ],
+                    ]
+                ]
+
+        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -131,6 +152,7 @@ return [
                     'except' => ['delete'],
 
                 ],
+                '/' => 'site/index',
 
                 'login' => '/login/login',
                 'logout' => '/login/logout',
@@ -143,6 +165,7 @@ return [
                 '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
+
         ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
@@ -154,6 +177,7 @@ return [
 //            ]
 //        ]
     ],
+
 
     'params' => $params,
 ];

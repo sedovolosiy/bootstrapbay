@@ -7,6 +7,43 @@
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
     <schema name="" catalog="bootstrapbay"/>
+    <table name="auth_assignment" schema="" catalog="bootstrapbay" type="TABLE">
+      <column name="item_name" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="user_id" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="created_at" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="item_name,user_id"/>
+      <foreign-key name="auth_assignment_ibfk_1" columns="item_name" ref-table="auth_item" ref-schema="" ref-catalog="bootstrapbay" ref-columns="name" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="auth_item" schema="" catalog="bootstrapbay" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="type" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="description" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="rule_name" sqlType="VARCHAR" precision="64" scale="0" nullable="true" jdbcType="12"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="created_at" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="updated_at" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="name"/>
+      <foreign-key name="auth_item_ibfk_1" columns="rule_name" ref-table="auth_rule" ref-schema="" ref-catalog="bootstrapbay" ref-columns="name" update-rule="0" delete-rule="2" deferrability="2"/>
+      <exported-key name="auth_assignment_ibfk_1" table="auth_assignment" schema="" catalog="bootstrapbay" columns="item_name"/>
+      <exported-key name="auth_item_child_ibfk_1" table="auth_item_child" schema="" catalog="bootstrapbay" columns="parent"/>
+      <exported-key name="auth_item_child_ibfk_2" table="auth_item_child" schema="" catalog="bootstrapbay" columns="child"/>
+      <index name="idx-auth_item-type" unique="false" columns="type"/>
+    </table>
+    <table name="auth_item_child" schema="" catalog="bootstrapbay" type="TABLE">
+      <column name="parent" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="child" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="parent,child"/>
+      <foreign-key name="auth_item_child_ibfk_1" columns="parent" ref-table="auth_item" ref-schema="" ref-catalog="bootstrapbay" ref-columns="name" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="auth_item_child_ibfk_2" columns="child" ref-table="auth_item" ref-schema="" ref-catalog="bootstrapbay" ref-columns="name" update-rule="0" delete-rule="0" deferrability="2"/>
+    </table>
+    <table name="auth_rule" schema="" catalog="bootstrapbay" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12"/>
+      <column name="data" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="created_at" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="updated_at" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="name"/>
+      <exported-key name="auth_item_ibfk_1" table="auth_item" schema="" catalog="bootstrapbay" columns="rule_name"/>
+    </table>
     <table name="education" schema="" catalog="bootstrapbay" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="title" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>

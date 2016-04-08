@@ -8,6 +8,8 @@ use backend\models\SkillsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * SkillsController implements the CRUD actions for Skills model.
@@ -26,8 +28,11 @@ class SkillsController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
-                ],
+                ]
             ],
+            'as AccessBehavior' => [
+                'class' => AccessBehavior::className(),
+            ]
         ];
     }
 
@@ -44,7 +49,7 @@ class SkillsController extends Controller
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'model' =>$model,
+            'model' => $model,
         ]);
     }
 

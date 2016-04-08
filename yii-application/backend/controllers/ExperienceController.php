@@ -8,6 +8,7 @@ use backend\models\ExperienceSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * ExperienceController implements the CRUD actions for Experience model.
@@ -25,6 +26,9 @@ class ExperienceController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+            'as AccessBehavior' => [
+                'class' => AccessBehavior::className(),
             ],
         ];
     }

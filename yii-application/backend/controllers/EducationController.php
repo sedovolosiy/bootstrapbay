@@ -8,6 +8,7 @@ use backend\models\EducationSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * EducationController implements the CRUD actions for Education model.
@@ -25,6 +26,9 @@ class EducationController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+            'as AccessBehavior' => [
+                'class' => AccessBehavior::className(),
             ],
         ];
     }

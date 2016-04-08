@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * WorksController implements the CRUD actions for Works model.
@@ -27,6 +28,10 @@ class WorksController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+            'as AccessBehavior' => [
+                'class' => AccessBehavior::className(),
+            ],
+
         ];
     }
 
