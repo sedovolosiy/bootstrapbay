@@ -28,6 +28,7 @@ class PersonalInfoController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
             'as AccessBehavior' => [
                 'class' => AccessBehavior::className(),
             ],
@@ -157,5 +158,16 @@ class PersonalInfoController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
     }
 }
