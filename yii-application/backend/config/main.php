@@ -187,6 +187,48 @@ return [
                             'allow' => true,
                         ],
                     ],
+                'api_v1/profile' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
+                'api_v1/works' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
+                'api_v1/skills' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
+                'api_v1/personal-info' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
+                'api_v1/experience' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
+                'api_v1/education' =>
+                    [
+                        [
+                            'allow' => true,
+                        ]
+
+                    ],
             ],
 
 

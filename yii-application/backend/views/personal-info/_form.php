@@ -15,7 +15,7 @@ use kartik\date\DatePicker;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <div class="form-group">
-        <div class="col-sm-offset-2 col-md-10">
+        <div class="container">
 
 
             <div class="row">

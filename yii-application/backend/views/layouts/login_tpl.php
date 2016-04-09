@@ -11,9 +11,6 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
 AppAsset::register($this);
@@ -30,27 +27,12 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => 'Админка',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-    ]);
-
-    NavBar::end();
-    ?>
-
     <div class="container">
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
 </div>
-
-
 <?php $this->endBody() ?>
 </body>
 </html>
