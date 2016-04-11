@@ -12,7 +12,6 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
-use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * Site controller

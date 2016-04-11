@@ -11,10 +11,14 @@ $this->title = 'My Yii Application';
 
         <p class="lead">Вы вошли в административную часть сайта. Выберите нужный пункт меню.</p>
         <?php if(Yii::$app->user->can('admin')){
-            echo 'Роль присвоена Администратор';
+            $userRole = Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+            $value = ArrayHelper::getValue($userRole, 'admin.description');
+            echo "Роль присвоена $value";
         }
         elseif(Yii::$app->user->can('editor')){
-                echo 'Роль присвоена Модератор';
+            $userRole = Yii::$app->authManager->getRolesByUser(Yii::$app->user->id);
+            $value = ArrayHelper::getValue($userRole, 'editor.description');
+            echo "Роль присвоена $value";
             }
         else{
             echo 'Роль присвоена Пользователь';

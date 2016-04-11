@@ -162,8 +162,12 @@ AppAsset::register($this);
                     [
                         'label' => 'Ролью пользователя',
                         'url' => ['/permit/user/view/1']
-                    ]
-
+                    ],
+                    '<li class="divider"></li>',
+                    [
+                        'label' => 'Списком пользователей',
+                        'url' => ['/user/index']
+                    ],
                 ]
             ];
     }
