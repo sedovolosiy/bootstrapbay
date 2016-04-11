@@ -26,7 +26,8 @@
         "kartik-v/yii2-field-range": "*",
         "yiisoft/yii2-jui": "^2.0",
         "kartik-v/yii2-datecontrol": "dev-master",
-        "eleiva/yii2-noty": "*"
+        "eleiva/yii2-noty": "*",
+        "developeruz/yii2-db-rbac": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

@@ -2,12 +2,15 @@
 
 namespace backend\controllers;
 
+namespace backend\controllers;
 use Yii;
 use common\models\Skills;
 use backend\models\SkillsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 /**
  * SkillsController implements the CRUD actions for Skills model.
@@ -27,6 +30,9 @@ class SkillsController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                 ],
+            ],
+            'as AccessBehavior' => [
+                'class' => AccessBehavior::className(),
             ],
         ];
     }

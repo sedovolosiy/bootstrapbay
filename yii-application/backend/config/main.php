@@ -1,5 +1,6 @@
 <?php
 use \kartik\datecontrol\Module;
+use developeruz\db_rbac\behaviors\AccessBehavior;
 
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
@@ -15,6 +16,12 @@ return [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'modules' => [
+        'permit' => [
+            'class' => 'developeruz\db_rbac\Yii2DbRbac',
+            'params' => [
+                'userClass' => 'common\models\User'
+            ]
+        ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',
             //be sure, that permissions ok
@@ -73,6 +80,7 @@ return [
 
     ],
     'components' => [
+
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -110,6 +118,8 @@ return [
                 'experience' => '/experience/index',
                 'education' => '/education/index',
                 'skills' => '/skills/index',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
         ],
         'formatter' => [
@@ -121,6 +131,26 @@ return [
 //                'application/json' => 'yii\web\JsonParser',
 //            ]
 //        ]
+    ],
+    'as AccessBehavior' => [
+        'class' => AccessBehavior::className(),
+        'rules' =>
+            [
+                'login' =>
+                    [
+                        [
+                            'actions' => ['login', 'index', 'error', 'logout'],
+                            'allow' => true,
+                        ],
+                    ],
+                'site' =>
+                    [
+                        [
+                            'actions' => ['index', 'error', 'logout'],
+                            'allow' => true,
+                        ],
+                    ],
+            ],
     ],
 
     'params' => $params,
