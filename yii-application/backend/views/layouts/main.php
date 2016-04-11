@@ -140,30 +140,33 @@ AppAsset::register($this);
             ]
         ],
 
-        [
-            'label' => '<i class="fa fa-key"></i>',
-            'items' => [
-                '<li class="dropdown-header">Управление</li>',
-                '<li class="divider"></li>',
-                [
-                    'label' => 'Ролями',
-                    'url' => ['/permit/access/role']
-                ],
-                '<li class="divider"></li>',
-                [
-                    'label' => ' Правами',
-                    'url' => ['/permit/access/permission']
-                ],
-                '<li class="divider"></li>',
-                [
-                    'label' => 'Ролью пользователя',
-                    'url' => ['/permit/user/view/1']
-                ]
-
-            ]
-        ],
 
     ];
+    if(Yii::$app->user->can('admin')){
+        $menuItems[] =
+            [
+                'label' => '<i class="fa fa-key"></i>',
+                'items' => [
+                    '<li class="dropdown-header">Управление</li>',
+                    '<li class="divider"></li>',
+                    [
+                        'label' => 'Ролями',
+                        'url' => ['/permit/access/role']
+                    ],
+                    '<li class="divider"></li>',
+                    [
+                        'label' => ' Правилами',
+                        'url' => ['/permit/access/permission']
+                    ],
+                    '<li class="divider"></li>',
+                    [
+                        'label' => 'Ролью пользователя',
+                        'url' => ['/permit/user/view/1']
+                    ]
+
+                ]
+            ];
+    }
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Login!', 'url' => ['/login']];
     } else {

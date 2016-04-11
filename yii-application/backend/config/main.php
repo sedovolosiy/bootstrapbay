@@ -83,7 +83,10 @@ return [
 
     ],
     'components' => [
-
+//        'authManager' => [
+//            'class' => 'yii\rbac\DbManager',
+//            'defaultRoles' => ['user'],
+//        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -187,45 +190,53 @@ return [
                             'allow' => true,
                         ],
                     ],
-                'api_v1/profile' =>
+//                'api_v1/profile' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+//                'api_v1/works' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+//                'api_v1/skills' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+//                'api_v1/personal-info' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+//                'api_v1/experience' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+//                'api_v1/education' =>
+//                    [
+//                        [
+//                            'allow' => true,
+//                        ]
+//
+//                    ],
+                '/' =>
                     [
                         [
                             'allow' => true,
-                        ]
-
-                    ],
-                'api_v1/works' =>
-                    [
-                        [
-                            'allow' => true,
-                        ]
-
-                    ],
-                'api_v1/skills' =>
-                    [
-                        [
-                            'allow' => true,
-                        ]
-
-                    ],
-                'api_v1/personal-info' =>
-                    [
-                        [
-                            'allow' => true,
-                        ]
-
-                    ],
-                'api_v1/experience' =>
-                    [
-                        [
-                            'allow' => true,
-                        ]
-
-                    ],
-                'api_v1/education' =>
-                    [
-                        [
-                            'allow' => true,
+                            'roles' => ['admin'],
                         ]
 
                     ],
