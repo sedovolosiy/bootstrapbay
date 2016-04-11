@@ -1,15 +1,12 @@
 <?php
 use \kartik\datecontrol\Module;
 use developeruz\db_rbac\behaviors\AccessBehavior;
-use yii\web\ForbiddenHttpException;
-
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-
 return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
@@ -55,10 +52,8 @@ return [
             ],
             // set your display timezone
 //            'displayTimezone' => 'Asia/Kolkata',
-
             // set your timezone for date saved to db
 //            'saveTimezone' => 'UTC',
-
             // automatically use kartik\widgets for each of the above formats
             'autoWidget' => true,
             // default settings for each widget from kartik\widgets used when autoWidget is true
@@ -80,13 +75,8 @@ return [
             ]
             // other settings
         ],
-
     ],
     'components' => [
-//        'authManager' => [
-//            'class' => 'yii\rbac\DbManager',
-//            'defaultRoles' => ['user'],
-//        ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
@@ -109,42 +99,7 @@ return [
             'showScriptName' => false,
             'enableStrictParsing' => false,
             'rules' => [
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'works',
-                    'except' => ['delete'],
 
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'skills',
-                    'except' => ['delete'],
-
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'profile',
-                    'except' => ['delete'],
-
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'personal-info',
-                    'except' => ['delete'],
-
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'experience',
-                    'except' => ['delete'],
-
-                ],
-                [
-                    'class' => 'yii\rest\UrlRule',
-                    'controller' => 'education',
-                    'except' => ['delete'],
-
-                ],
                 '/' => 'site/index',
                 'login' => '/login/login',
                 'logout' => '/login/logout',
@@ -157,7 +112,6 @@ return [
                 '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
-
         ],
         'formatter' => [
             'class' => 'yii\i18n\Formatter',
@@ -192,8 +146,6 @@ return [
                     ],
 
             ],
-
-
     ],
     'params' => $params,
 ];
