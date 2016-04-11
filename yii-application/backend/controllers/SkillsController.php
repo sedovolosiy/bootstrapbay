@@ -30,9 +30,9 @@ class SkillsController extends Controller
                     'delete' => ['POST'],
                 ]
             ],
-            'as AccessBehavior' => [
-                'class' => AccessBehavior::className(),
-            ]
+//            'as AccessBehavior' => [
+//                'class' => AccessBehavior::className(),
+//            ]
         ];
     }
 
