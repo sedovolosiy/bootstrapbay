@@ -28,32 +28,32 @@ $this->registerJsFile('/js/visible.js');
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
             'title',
-//            [
-//                'attribute' => 'value',
-//                'header' => 'Значение',
-//                'content' => function ($model) {
-//                    if ($model->value <= 50):
-//                        return Progress::widget([
-//                            'percent' => $model->value,
-//                            'label' => $model->value . ' %',
-//                            'barOptions' => ['class' => 'progress-bar-danger']
-//                        ]);
-//                    elseif ($model->value <= 70):
-//                        return Progress::widget([
-//                            'percent' => $model->value,
-//                            'label' => $model->value . ' %',
-//                            'barOptions' => ['class' => 'progress-bar-warning']
-//                        ]);
-//                    elseif ($model->value <= 100):
-//                        return Progress::widget([
-//                            'percent' => $model->value,
-//                            'label' => $model->value . ' %',
-//                            'barOptions' => ['class' => 'progress-bar-success']
-//                        ]);
-//
-//                    endif;
-//                }
-//            ],
+            [
+                'attribute' => 'value',
+                'header' => 'Значение',
+                'content' => function ($model) {
+                    if ($model->value <= 50):
+                        return Progress::widget([
+                            'percent' => $model->value,
+                            'label' => $model->value . ' %',
+                            'barOptions' => ['class' => 'progress-bar-danger']
+                        ]);
+                    elseif ($model->value <= 70):
+                        return Progress::widget([
+                            'percent' => $model->value,
+                            'label' => $model->value . ' %',
+                            'barOptions' => ['class' => 'progress-bar-warning']
+                        ]);
+                    elseif ($model->value <= 100):
+                        return Progress::widget([
+                            'percent' => $model->value,
+                            'label' => $model->value . ' %',
+                            'barOptions' => ['class' => 'progress-bar-success']
+                        ]);
+
+                    endif;
+                }
+            ],
 
             [
                 'header' => 'Статус',

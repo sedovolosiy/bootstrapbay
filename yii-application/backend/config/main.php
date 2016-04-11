@@ -17,12 +17,12 @@ return [
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'modules' => [
-//        'permit' => [
-//            'class' => 'developeruz\db_rbac\Yii2DbRbac',
-//            'params' => [
-//                'userClass' => 'common\models\User'
-//            ]
-//        ],
+        'permit' => [
+            'class' => 'developeruz\db_rbac\Yii2DbRbac',
+            'params' => [
+                'userClass' => 'common\models\User'
+            ]
+        ],
         'api_v1' => [
             'class' => 'backend\modules\api_v1\Module',
         ],
@@ -154,8 +154,8 @@ return [
                 'experience' => '/experience/index',
                 'education' => '/education/index',
                 'skills' => '/skills/index',
-//                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
-//                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:(\w|-)+>/<id:\d+>' => '<module>/<controller>/<action>',
             ],
 
         ],
@@ -172,28 +172,28 @@ return [
 //            ]
 //        ]
     ],
-//    'as AccessBehavior' => [
-//        'class' => AccessBehavior::className(),
-//        'rules' =>
-//            [
-//                'login' =>
-//                    [
-//                        [
-//                            'actions' => ['login', 'index', 'error', 'logout'],
-//                            'allow' => true,
-//                        ],
-//                    ],
-//                'site' =>
-//                    [
-//                        [
-//                            'actions' => ['index', 'error', 'logout'],
-//                            'allow' => true,
-//                        ],
-//                    ],
-//
-//            ],
-//
-//
-//    ],
+    'as AccessBehavior' => [
+        'class' => AccessBehavior::className(),
+        'rules' =>
+            [
+                'login' =>
+                    [
+                        [
+                            'actions' => ['login', 'index', 'error', 'logout'],
+                            'allow' => true,
+                        ],
+                    ],
+                'site' =>
+                    [
+                        [
+                            'actions' => ['index', 'error', 'logout'],
+                            'allow' => true,
+                        ],
+                    ],
+
+            ],
+
+
+    ],
     'params' => $params,
 ];
