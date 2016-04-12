@@ -7,6 +7,7 @@ use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 use developeruz\db_rbac\interfaces\UserRbacInterface;
+
 /**
  * User model
  *
@@ -112,7 +113,7 @@ class User extends ActiveRecord implements IdentityInterface, UserRbacInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -190,6 +191,7 @@ class User extends ActiveRecord implements IdentityInterface, UserRbacInterface
     {
         return ['id', 'email', 'username'];
     }
+
     public function extraFields()
     {
         return ['status'];

@@ -19,6 +19,7 @@ use yii\filters\VerbFilter;
 class LoginController extends Controller
 {
     public $layout = 'login_tpl';
+
     /**
      * @inheritdoc
      */

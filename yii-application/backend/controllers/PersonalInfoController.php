@@ -77,9 +77,9 @@ class PersonalInfoController extends Controller
         $model = new PersonalInfo();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = UploadedFile::getInstance($model,'image');
-            if($model->image){
-                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if ($model->image) {
+                $path = Yii::getAlias('@webroot/upload/files/') . $model->image->baseName . '.' . $model->image->extension;
                 $model->image->saveAs($path);
                 $model->attachImage($path);
                 unlink($path);
@@ -103,9 +103,9 @@ class PersonalInfoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $model->image = UploadedFile::getInstance($model,'image');
-            if($model->image){
-                $path = Yii::getAlias('@webroot/upload/files/').$model->image->baseName.'.'.$model->image->extension;
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if ($model->image) {
+                $path = Yii::getAlias('@webroot/upload/files/') . $model->image->baseName . '.' . $model->image->extension;
                 $model->image->saveAs($path);
                 $model->attachImage($path, true);
                 unlink($path);
@@ -159,6 +159,7 @@ class PersonalInfoController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
     /**
      * @inheritdoc
      */

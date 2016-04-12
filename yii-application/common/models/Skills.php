@@ -29,7 +29,7 @@ class Skills extends \yii\db\ActiveRecord
     {
         return [
             [['title', 'value'], 'required'],
-            [['value', ], 'integer'],
+            [['value',], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['status'], 'boolean'],
         ];

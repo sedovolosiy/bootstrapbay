@@ -20,7 +20,7 @@ class m160329_111803_create_personal_info_table extends Migration
             'first_name' => Schema::TYPE_STRING . '(255) NOT NULL',
             'last_name' => Schema::TYPE_STRING . '(255) NOT NULL',
             'position' => Schema::TYPE_STRING . '(255) NOT NULL',
-            'date_of_birth' =>Schema::TYPE_DATE . ' NOT NULL',
+            'date_of_birth' => Schema::TYPE_DATE . ' NOT NULL',
             'address' => Schema::TYPE_STRING . ' NOT NULL',
             'phone' => Schema::TYPE_STRING . ' NOT NULL',
             'website' => Schema::TYPE_STRING . '(150) NOT NULL',

@@ -17,9 +17,11 @@ $this->params['breadcrumbs'][] = $this->title;
         $image = $model->getImage();
         ?>
 
-        <?php if($image){ ?>
+        <?php if ($image) { ?>
             <div class="col-md-3">
-                <img src="/<? echo $image->getPath('250x'); ?>"><alt=""></alt>
+                <img src="/<? echo $image->getPath('250x'); ?>">
+                <alt
+                =""></alt>
                 <div class="row">
                     <div class="col-md-12">
                         <p>
@@ -35,19 +37,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     </div>
                 </div>
             </div>
-        <? }?>
+        <? } ?>
 
         <div class="col-md-9">
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'title',
-            'short_description:html',
-            'description:html',
-            'url:url',
-        ],
-    ]) ?>
+            <?= DetailView::widget([
+                'model' => $model,
+                'attributes' => [
+                    'id',
+                    'title',
+                    'short_description:html',
+                    'description:html',
+                    'url:url',
+                ],
+            ]) ?>
         </div>
     </div>
 </div>

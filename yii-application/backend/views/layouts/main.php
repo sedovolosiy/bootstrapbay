@@ -142,7 +142,7 @@ AppAsset::register($this);
 
 
     ];
-    if(Yii::$app->user->can('admin')){
+    if (Yii::$app->user->can('admin')) {
         $menuItems[] =
             [
                 'label' => '<i class="fa fa-key"></i>',

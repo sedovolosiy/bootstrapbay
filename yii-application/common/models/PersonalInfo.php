@@ -84,7 +84,7 @@ class PersonalInfo extends \yii\db\ActiveRecord
     {
         return [
             'id',
-            'email' =>'user_email',
+            'email' => 'user_email',
             'first_name',
             'last_name',
             'position',

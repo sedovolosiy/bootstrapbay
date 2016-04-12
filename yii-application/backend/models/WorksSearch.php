@@ -23,6 +23,7 @@ class WorksSearch extends Works
             ]
         ];
     }
+
     /**
      * @inheritdoc
      */

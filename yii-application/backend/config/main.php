@@ -1,6 +1,7 @@
 <?php
 use \kartik\datecontrol\Module;
 use developeruz\db_rbac\behaviors\AccessBehavior;
+
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
@@ -20,8 +21,8 @@ return [
                 'userClass' => 'common\models\User'
             ]
         ],
-        'api_v1' => [
-            'class' => 'backend\modules\api_v1\Module',
+        'v1' => [
+            'class' => 'backend\modules\api\v1\Module',
         ],
         'yii2images' => [
             'class' => 'rico\yii2images\Module',

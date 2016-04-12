@@ -6,11 +6,11 @@
  * Time: 16:46
  */
 
-namespace backend\modules\api_v1;
+namespace backend\modules\api\v1;
 
 class Module extends \yii\base\Module
 {
-    public $controllerNamespace = 'backend\modules\api_v1\controllers';
+    public $controllerNamespace = 'backend\modules\api\v1\controllers';
 
     public function init()
     {

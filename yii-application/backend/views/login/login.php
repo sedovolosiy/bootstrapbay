@@ -17,8 +17,8 @@ use yii\bootstrap\ActiveForm;
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <h1 class="text-center login-title">Вход</h1>
             <div class="account-wall">
-<!--                <form class="form-signin">-->
-            <?php $form = ActiveForm::begin(['id' => 'login-form', 'options' => ['class' => 'form-signin']]); ?>
+                <!--                <form class="form-signin">-->
+                <?php $form = ActiveForm::begin(['id' => 'login-form', 'options' => ['class' => 'form-signin']]); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
@@ -30,8 +30,8 @@ use yii\bootstrap\ActiveForm;
                     <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                 </div>
 
-            <?php ActiveForm::end(); ?>
-<!--                </form>-->
+                <?php ActiveForm::end(); ?>
+                <!--                </form>-->
             </div>
         </div>
     </div>

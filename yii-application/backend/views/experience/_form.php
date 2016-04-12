@@ -29,11 +29,11 @@ use mihaildev\ckeditor\CKEditor;
             'format' => 'yyyy-mm-dd',
             'autoclose' => true,
         ]
-    ]);?>
+    ]); ?>
 
-<!--    --><?//= $form->field($model, 'date_from')->textInput() ?>
-<!---->
-<!--    --><?//= $form->field($model, 'date_to')->textInput() ?>
+    <!--    --><? //= $form->field($model, 'date_from')->textInput() ?>
+    <!---->
+    <!--    --><? //= $form->field($model, 'date_to')->textInput() ?>
 
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
         'editorOptions' => [
@@ -45,7 +45,8 @@ use mihaildev\ckeditor\CKEditor;
     ]); ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить',
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

@@ -28,6 +28,7 @@ class Works extends \yii\db\ActiveRecord
             ]
         ];
     }
+
     /**
      * @inheritdoc
      */

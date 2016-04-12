@@ -58,7 +58,7 @@ $this->registerJsFile('/js/visible.js');
             [
                 'header' => 'Статус',
 //                'attribute'=>'status',
-                'contentOptions' =>['style'=>'display:block;'],
+                'contentOptions' => ['style' => 'display:block;'],
                 'headerOptions' => ['width' => '80'],
                 'content' => function ($model) {
                     return $model->status == 1 ? Html::button('<i class="fa fa-eye"></i> Active',

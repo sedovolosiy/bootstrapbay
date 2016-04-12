@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\helpers\Url;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\WorksSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -21,33 +22,33 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <div class="row">
         <div class="col-md-12">
-        <?php Pjax::begin(); ?>    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
+            <?php Pjax::begin(); ?>    <?= GridView::widget([
+                'dataProvider' => $dataProvider,
 //        'filterModel' => $searchModel,
-            'showHeader' => true,
-            'showFooter'=> false,
-            'tableOptions' => [
-                'class' => 'table table-striped table-bordered;',
-            ],
+                'showHeader' => true,
+                'showFooter' => false,
+                'tableOptions' => [
+                    'class' => 'table table-striped table-bordered;',
+                ],
 
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                'columns' => [
+                    ['class' => 'yii\grid\SerialColumn'],
 
 //            'id',
-            [
+                    [
 //                'attribute'=>'title',
-                'header'=>'Заголовок',
+                        'header' => 'Заголовок',
 //                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
-                'content' => function ($model) {
-                    return $model->title;
-                }
-            ],
-        [
-            'header'=>'Краткое описание',
-            'attribute' => 'short_description',
-            'format' =>  ['html'],
+                        'content' => function ($model) {
+                            return $model->title;
+                        }
+                    ],
+                    [
+                        'header' => 'Краткое описание',
+                        'attribute' => 'short_description',
+                        'format' => ['html'],
 
-        ],
+                    ],
 //            'short_description:html',
 //            'description:html',
 //            [
@@ -58,25 +59,27 @@ $this->params['breadcrumbs'][] = $this->title;
 //                    return $model->description;
 //                }
 //            ],
-            [
+                    [
 //                'attribute'=>'title',
-                'header'=>'Картинка',
-                'format' =>  'raw',
+                        'header' => 'Картинка',
+                        'format' => 'raw',
 //                'contentOptions' =>['class' => 'table_class','style'=>'display:inline;'],
-                'content' => function ($model) {
-                    return Html::img(Url::toRoute('/' . $model->getImage()->getPath('x100')),[
-                        'alt'=>'yii2 - картинка в gridview',
+                        'content' => function ($model) {
+                            return Html::img(Url::toRoute('/' . $model->getImage()->getPath('x100')), [
+                                'alt' => 'yii2 - картинка в gridview',
 //                        'style' => 'width:100px;'
-                    ]);
-                },
-            ],
+                            ]);
+                        },
+                    ],
 
-            ['class' => 'yii\grid\ActionColumn',
-                'header'=>'Действия',
-                'headerOptions' => ['width' => '80px'],
-                'template' => '{view} {update} {delete}{link}',],
-        ],
-    ]); ?>
-<?php Pjax::end(); ?>
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'header' => 'Действия',
+                        'headerOptions' => ['width' => '80px'],
+                        'template' => '{view} {update} {delete}{link}',
+                    ],
+                ],
+            ]); ?>
+            <?php Pjax::end(); ?>
         </div>
     </div>

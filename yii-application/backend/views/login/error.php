@@ -22,7 +22,8 @@ $this->title = $name;
                 </div>
                 <div class="error-actions">
                     <a href="/" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Перейти на главную </a><a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Написать администратору </a>
+                        Перейти на главную </a><a href="#" class="btn btn-default btn-lg"><span
+                            class="glyphicon glyphicon-envelope"></span> Написать администратору </a>
                 </div>
             </div>
         </div>

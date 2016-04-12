@@ -23,12 +23,12 @@ use mihaildev\ckeditor\CKEditor;
                 $image = $model->getImage();
 
                 ?>
-                <?php if($image){ ?>
+                <?php if ($image) { ?>
                     <div class="col-md-9">
                         <img src="/<? echo $image->getPath('x300'); ?>" alt="<?= $model->title ?>">
-                        <!--                    --><?//= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
+                        <!--                    --><? //= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
                     </div>
-                <? }?>
+                <? } ?>
                 <?php
                 $images = $model->getImages();
 
@@ -36,9 +36,9 @@ use mihaildev\ckeditor\CKEditor;
                 <?php foreach ($images as $image): ?>
 
                     <div class="col-md-3">
-                        <?php if($image){ ?>
-                            <img src="<?=$image->getUrl('x100')?>" alt="<?= $model->title ?>">
-                        <? }?>
+                        <?php if ($image) { ?>
+                            <img src="<?= $image->getUrl('x100') ?>" alt="<?= $model->title ?>">
+                        <? } ?>
                     </div>
 
                 <?php endforeach ?>
@@ -48,13 +48,14 @@ use mihaildev\ckeditor\CKEditor;
     <div class="form-group">
         <div class="row">
             <div class="col-xs-4">
-                <?= $form->field($model,'del_img')->checkBox(['class'=>'span-1']) ?>
+                <?= $form->field($model, 'del_img')->checkBox(['class' => 'span-1']) ?>
             </div>
             <div class="col-xs-4">
-                <?= $form->field($model,'del_gallery')->checkBox(['class'=>'span-1']) ?>
+                <?= $form->field($model, 'del_gallery')->checkBox(['class' => 'span-1']) ?>
             </div>
             <div class="col-xs-4">
-                <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить',
+                    ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
             </div>
         </div>
     </div>
@@ -85,7 +86,8 @@ use mihaildev\ckeditor\CKEditor;
     <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Добавить' : 'Обновить',
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

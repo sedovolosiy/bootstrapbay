@@ -14,6 +14,7 @@ use developeruz\db_rbac\behaviors\AccessBehavior;
 class SiteController extends Controller
 {
     public $layout = 'main';
+
     /**
      * @inheritdoc
      */

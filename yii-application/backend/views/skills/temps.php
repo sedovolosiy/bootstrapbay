@@ -52,6 +52,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\SkillsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -81,27 +82,27 @@ $this->registerJsFile('/js/visible.js');
 
             [
                 'class' => 'yii\grid\ActionColumn',
-                'header'=>'Действия',
+                'header' => 'Действия',
                 'headerOptions' => ['width' => '100'],
                 'template' => '{status} {view} {update} {delete}',
                 'buttons' => [
                     'status' => function ($model) {
                         return $model->status == 1 ? Html::a('<i class="fa fa-eye"></i> Active',
-                            ['skills/change-visible', 'id' => $model->id, 'status' =>$model->status],
+                            ['skills/change-visible', 'id' => $model->id, 'status' => $model->status],
 //                            'status' =>$model->status
                             [
                                 'title' => 'Status',
-                                'id'=> "status_change",
+                                'id' => "status_change",
                                 'class' => 'btn btn-primary btn-xs btn-success',
                                 'data-method' => 'post',
                                 'data-pjax' => '0',
                             ]) :
                             Html::a('<i class="fa fa-eye-slash"></i> Pass',
-                                ['skills/change-visible', 'id' => $model->id, 'status' =>$model->status],
+                                ['skills/change-visible', 'id' => $model->id, 'status' => $model->status],
 //                            'status' =>$model->status
                                 [
                                     'title' => 'Status',
-                                    'id'=> "status_change",
+                                    'id' => "status_change",
                                     'class' => 'btn btn-primary btn-xs btn-warning',
                                     'data-method' => 'post',
                                     'data-pjax' => '0',
